@@ -1,0 +1,10 @@
+{
+  "name": "nmbtaxi",
+  "private": true,
+  "dependencies": {
+    "modernizr": "~2.8.1",
+    "jquery": "^2.2.0"
+  },
+  "overrides": {},
+  "devDependencies": {}
+}
