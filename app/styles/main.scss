@@ -12,6 +12,7 @@
 
 // Utils
 @import 'utils/responsive';
+@import 'utils/gradient';
 
 // General Styles
 @import 'base/general';
@@ -20,6 +21,10 @@
 
 // Vendors
 @import 'vendor/bootstrap-grid/bootstrap';
+@import 'vendor/owl/owl-carousel';
+@import 'vendor/owl/owl-theme';
+@import 'vendor/owl/owl-transitions';
+@import 'vendor/magnificPopup/magnific';
 
 
 

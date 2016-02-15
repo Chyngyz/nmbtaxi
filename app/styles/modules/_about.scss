@@ -4,36 +4,67 @@
 	line-height: rem(40);
 	margin-bottom: 40px;
 	font-family: $myriad-thin;
+
+	@include MQM(MD) {
+        font-size: rem(19);
+        line-height: rem(30);
+    }
 }
 
 %label {
-	font-size: 120px;
-    font-family: $u-heavy;
+    font-family: $myriad-bolder;
     color: rgb(255, 0, 96);
     text-transform: uppercase;
-    line-height: 1.2em;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    line-height: 1.2;
+    
+
 }
 
 .taxi-about {
 	position: relative;
 	padding-bottom: 270px;
 
+	@include MQM(SM) {
+		padding-bottom: 130px;
+	}
+
 
 	&--iphone {
 		position: absolute;
 		left: 0px;
-		top: -150px;
+		top: 0;
 		z-index: 2;
+		opacity: 0;
+
+		@include transition(all, 0.55s, ease);
+
+		@include MQM(1040) {
+			width: 400px;
+		}
+
+		&.on {
+			top: -150px;
+			opacity: 1;
+		}
 
 	}
 
 	&--android {
 		position: absolute;
 		right: 0px;
-		top: 430px;
+		top: 230px;
 		z-index: 2;
+		opacity: 0;
+		@include transition(all, 0.55s, ease);
+
+		@include MQM(1040) {
+			width: 400px;
+		}
+
+		&.on {
+			top: 430px;
+			opacity: 1;
+		}
 	}
 
 	&--dapp {
@@ -42,6 +73,12 @@
 		left: 0;
 		width: 100%;
 		z-index: 2;
+		opacity: 0;
+		@include transition(all, 0.55s, ease);
+
+		&.on {
+			opacity: 1;
+		}
 	}
 
 	.container {
@@ -50,31 +87,136 @@
 	}
 
 	&--clients {
-		margin-top: 160px;
+		margin-top: 40px;
+
+		&.on {
+			.taxi-about--clients-label {
+				opacity: 1;
+				@include transform(translateY(0));
+			}
+
+			.taxi-about--clients-desc-wrap {
+				opacity: 1;
+				@include transform(translateY(0));
+			}
+		}
+
+		@include MQ(SM) {
+			margin-top: 160px;
+		}
 
 		&-label {
-			margin-left: 250px;
+			margin-left: 0px;
 			@extend %label;
-			@include linear-gradient(to right, #ff3636, #ff8199);
+
+			background: -webkit-linear-gradient(left, #ff3636, #ff8199);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+
+			font-size: rem(34);
+			opacity: 0;
+			position: relative;
+			@include transform(translateY(100px));
+			@include transition(all, 0.5s, ease-in-out);
+
+			@include MQ(XS) {
+				font-size: rem(64);
+			}
+
+			@include MQ(SM) {
+				margin-left: 150px;
+				font-size: rem(80);
+			}
+
+			@include MQ(MD) {
+				font-size: rem(120);
+			}
+
+			@include MQ(1040) {
+				margin-left: 250px;
+			}
+
+			
+
 		}
 
 		&-desc {
 			max-width: 680px;
 			@extend %desc;
 
+
 			&-wrap {
-				margin-left: 390px;
+				margin-left: 0px;
+				opacity: 0;
+				position: relative;
+				@include transform(translateY(100px));
+				@include transition(all, 0.5s, ease-in-out);
+				
+
+				@include MQ(SM) {
+					margin-left: 250px;
+				}
+
+				@include MQ(1040) {
+					margin-left: 390px;
+				}
 			}
 		}
 	}
 
 	&--drivers {
-		margin-top: 200px;
+		margin-top: 40px;
+		@include MQ(SM) {
+			margin-top: 200px;
+		}
 
+		&.on {
+			.taxi-about--drivers-label {
+				opacity: 1;
+				@include transform(translateY(0));
+			}
+
+			.taxi-about--drivers-desc-wrap {
+				opacity: 1;
+				@include transform(translateY(0));
+			}
+		}
+	
 		&-label {
 			margin-left: 238px;
 			@extend %label;
-			@include linear-gradient(to right, #ffda1e, #fef270);
+
+			background: -webkit-linear-gradient(left, #ffda1e, #fef270);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+
+			font-size: rem(34);
+			margin-left: 0;
+			opacity: 0;
+			position: relative;
+			@include transform(translateY(100px));
+			@include transition(all, 0.5s, ease-in-out);
+
+
+			@include MQ(XS) {
+				font-size: rem(64);
+			}
+
+			@include MQ(SM) {
+				margin-left: 50px;
+				font-size: rem(80);
+			}
+
+			@include MQ(MD) {
+				font-size: rem(120);
+				margin-left: 238px;
+			}
+
+			@include MQ(1040) {
+				margin-left: 250px;
+			}
+
+
 		}
 
 		&-desc {
@@ -82,7 +224,21 @@
 			@extend %desc;
 
 			&-wrap {
-				margin-left: 250px;
+				margin-left: 0px;
+				opacity: 0;
+				position: relative;
+				@include transform(translateY(100px));
+				@include transition(all, 0.5s, ease-in-out);
+				
+
+
+				@include MQ(SM) {
+					margin-left: 150px;
+				}
+
+				@include MQ(1040) {
+					margin-left: 250px;
+				}
 			}
 		}
 	}
@@ -96,17 +252,60 @@
 	overflow: hidden;
 	box-shadow: 0 2px 76px 0 rgba(43, 82, 121, 0.23);
 
+
+
 	&--operators {
 		margin-top: 60px;
 		text-align: center;
 
+		&.on {
+			.taxi-admin--operators-label {
+				opacity: 1;
+				@include transform(translateY(0));
+			}
+
+			.taxi-admin--operators-desc {
+				opacity: 1;
+				@include transform(translateY(0));
+			}
+		}
+
 		&-label {
 			@extend %label;
-			@include linear-gradient(to right, #92a9fd, #a4f7f2);
+			
+			background: -webkit-linear-gradient(left, #92a9fd, #a4f7f2);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			font-size: rem(34);
+
+			opacity: 0;
+			position: relative;
+			@include transform(translateY(100px));
+			@include transition(all, 0.5s, ease-in-out);
+
+			@include MQ(XS) {
+				font-size: rem(64);
+			}
+
+			@include MQ(SM) {
+				font-size: rem(80);
+			}
+
+			@include MQ(MD) {
+				font-size: rem(120);
+			}
 		}
 
 		&-desc {
 			@extend %desc;
+			@include MQM(MD) {
+		        font-size: rem(20);
+		    }
+
+		    opacity: 0;
+			position: relative;
+			@include transform(translateY(100px));
+			@include transition(all, 0.5s, ease-in-out);
 		}
 		
 		&-thumbs {
@@ -122,12 +321,36 @@
 
 			li {
 				display: inline-block;
+
+				@include MQM(XS) {
+					width: 47%;
+				}
 			}
 
 			a {
 				display: block;
 				text-align: center;
 				text-decoration: none;
+				@include transition(all 0.25s ease);
+
+				opacity: 0;
+				position: relative;
+				@include transform(translateY(30px));
+				@include transition(all, 0.3s, ease);
+
+				&.on {
+					opacity: 1;
+					@include transform(translateY(0));
+				}
+
+				&:hover {
+					@include transform(translateY(-10px));
+
+					.img-title {
+						color: $red;
+
+					}
+				}
 
 				.img-title {
 					display: block;
@@ -157,9 +380,48 @@
 		margin-top: 120px;
 		text-align: center;
 
+		&.on {
+			.taxi-admin--managers-label {
+				opacity: 1;
+				@include transform(translateY(0));
+			}
+
+			.taxi-admin--managers-desc {
+				opacity: 1;
+				@include transform(translateY(0));
+			}
+		}
+
+		@include MQM(XS) {
+			margin-top: 40px;
+		}
+
 		&-label {
 			@extend %label;
-			@include linear-gradient(to right, #88d1f2, #bbee86);
+
+			background: -webkit-linear-gradient(left, #88d1f2, #bbee86);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+
+			
+			font-size: rem(34);
+
+			opacity: 0;
+			position: relative;
+			@include transform(translateY(100px));
+			@include transition(all, 0.5s, ease-in-out);
+
+			@include MQ(XS) {
+				font-size: rem(64);
+			}
+
+			@include MQ(SM) {
+				font-size: rem(80);
+			}
+
+			@include MQ(MD) {
+				font-size: rem(120);
+			}
 		}
 
 		&-desc {
@@ -168,6 +430,15 @@
 			line-height: rem(40);
 			font-family: $myriad-thin;
 
+			opacity: 0;
+			position: relative;
+			@include transform(translateY(100px));
+			@include transition(all, 0.5s, ease-in-out);
+
+			@include MQM(MD) {
+		        font-size: rem(20);
+		    }
+
 			&-p {
 				color: #333;
 				font-size: rem(18);
@@ -175,4 +446,38 @@
 			}
 		}
 	}
+}
+.graph {
+	width: 105%;
+    margin-left: -15px;
+    margin-right: -15px;
+    margin-bottom: 15px;
+
+    overflow: hidden;
+
+
+    svg {
+		position: relative;
+		bottom: -10px;
+
+		#g1, #g2 {
+			transform: scale(1,2);
+		    transform-origin: 0% 100%;
+			transition: transform 500ms cubic-bezier(0.215, 0.61, 0.355, 1);
+		}
+
+		#g1 {
+			transition-delay: 100ms;
+		}
+
+		#g2 {
+			transition-delay: 200ms;
+		}
+
+		&.grown {
+			#g1, #g2 {
+				transform: scale(1,1);
+			}
+		}
+    }
 }

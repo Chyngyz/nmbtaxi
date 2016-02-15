@@ -1,0 +1,18 @@
+.red-btn {
+	border-radius: 8px;
+    background-image: -moz-linear-gradient( 90deg, rgb(255,62,100) 0%, rgb(255,137,107) 100%);
+    background-image: -webkit-linear-gradient( 90deg, rgb(255,62,100) 0%, rgb(255,137,107) 100%);
+    background-image: -ms-linear-gradient( 90deg, rgb(255,62,100) 0%, rgb(255,137,107) 100%);
+    box-shadow: 0px 8px 13px 0px rgba(255, 79, 116, 0.1),0px 11px 24px 0px rgba(255, 79, 116, 0.28);
+    font-family:$myriad-thin;
+    font-size: 30px;
+    color: white;
+    padding: 18px 60px;
+    text-decoration: none;
+
+    @include MQM(XS) {
+    	font-size: 21px;
+	    padding: 13px 44px;
+	    border-radius: 5px;
+    }
+}

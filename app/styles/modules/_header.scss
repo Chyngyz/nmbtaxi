@@ -11,12 +11,31 @@
 	padding-left:60px;
 	padding-right:60px;
 	padding-top: 38px;
+	height: auto;
+	@include transition(all 0.4s ease);
+
+	@include MQM(1100) {
+		padding-left: 30px;
+		padding-right: 30px;
+	}
+
+	@include MQM(XS) {
+    	padding-top: 10px;
+    	padding-left: 15px;
+    	padding-right: 15px;
+    }
 
 	&.shrink {
 		background-color: #FEDB4C;
 	    -moz-box-shadow: 0 1px 13px 0 #fea400;
 	    -webkit-box-shadow: 0 1px 13px 0 #fea400;
 	    box-shadow: 0 1px 13px 0 #fea400;
+	    height: 67px;
+	    padding-top: 0;
+
+	    @include MQM(XS) {
+	    	height: 50px;
+	    }
 	}
 
 
@@ -34,11 +53,23 @@
 			width: 100%;
 			height: auto;
 		}
+
+		@include MQM(XS) {
+			width: 110px;
+		}
 	}
 
 	.main-nav {
 		display: inline-block;
 		max-width: 785px;
+
+		@include MQM(1100) {
+			display: none;
+		}
+
+		@include MQM(1175) {
+			display: none;
+		}
 		
 
 		ul {
@@ -46,12 +77,20 @@
 			@include display(flex);
 			@include flex-direction(row);
 			@include justify-content(space-between);
-			width: 680px;
+			width: 100%;
 			max-width: 750px;
 		}
 
 		li {
 			display: inline-block;
+			margin-right: 35px;
+			&:last-child {
+				margin-right: 0;
+			}
+
+			@include MQM(1280) {
+				margin-right: 15px;
+			}
 		}
 
 		a {
@@ -96,11 +135,28 @@
 	    box-shadow: 0 1px 0 0 rgba(255, 135, 76, 0.27);
 	    font-size: 18px;
 	    color: rgb(255, 64, 68);
-	    margin-right: 35px;
+	    text-decoration: none;
+
+	    &:hover, &:focus, &:active {
+	    	text-decoration: none;
+	    }
+	    
+	    @include MQM(XS) {
+	    	display: none;
+	    }
 	}
 
 	&--lang {
 		display: inline-block;
+		margin-left: 35px;
+
+		@include MQM(1280) {
+			margin-right: 15px;
+		}
+
+		@include MQM(1175) {
+			display: none;
+		}
 
 		ul {
 			list-style: none;
@@ -113,6 +169,10 @@
 			&:last-of-type {
 				margin-right: 0;
 			}
+
+			@include MQM(1280) {
+				margin-right: 10px;
+			}
 		}
 
 		a {
@@ -122,6 +182,90 @@
 
 			&:hover, &:focus, &:active, &.active {
 				color: #fff;
+			}
+		}
+	}
+
+	&--burger {
+		$width: 28px;
+		$thickness: 4px;
+		
+		border: 0;
+		background: none;
+		outline: 0;
+		padding: 0;
+		cursor: pointer;
+		display: inline-block;
+		vertical-align: middle;
+		margin-left: 40px;
+		position: relative;
+		z-index: 21;
+
+		border-bottom: $thickness solid currentColor;
+		width: $width;
+
+		transition: border-bottom 1s ease-in-out;
+		-webkit-transition: border-bottom 1s ease-in-out;
+
+		@include MQ(1175) {
+			display: none;
+		}
+
+		@include MQM(XS) {
+	    	border-bottom: 2px solid currentColor;
+	    }
+
+		// Fix for extra space in Firefox
+		&::-moz-focus-inner {
+			border: 0;
+			padding: 0;
+		}	 
+
+		&:before {
+			content: "";
+			display: block;
+			border-bottom: $thickness solid currentColor;
+			width: 100%;
+			margin-bottom: 5px;
+			transition: transform 0.5s ease-in-out;    
+			-webkit-transition: -webkit-transform 0.5s ease-in-out;  
+
+			@include MQM(XS) {
+		    	border-bottom: 2px solid currentColor;
+		    }      
+		}
+
+		&:after {
+			content: "";
+			display: block;
+			border-bottom: $thickness solid currentColor;
+			width: 100%;
+			margin-bottom: 5px;
+			transition: transform 0.5s ease-in-out;
+			-webkit-transition: -webkit-transform 0.5s ease-in-out;
+
+			@include MQM(XS) {
+		    	border-bottom: 2px solid currentColor;
+		    }
+		}
+
+		&.open {
+			border-bottom: $thickness solid transparent;
+			transition: border-bottom 0.8s ease-in-out;
+			-webkit-transition: border-bottom 0.8s ease-in-out;
+
+			&:before {
+				transform: rotate(-405deg) translateY(1px) translateX(-3px);
+				-webkit-transform: rotate(-405deg) translateY(1px) translateX(-3px);      
+				transition: transform 0.5s ease-in-out;
+				-webkit-transition: -webkit-transform 0.5s ease-in-out;
+			}
+
+			&:after {
+				transform: rotate(405deg) translateY(-4px) translateX(-5px); 
+				-webkit-transform: rotate(405deg) translateY(-4px) translateX(-5px);       
+				transition: transform 0.5s ease-in-out;
+				-webkit-transition: -webkit-transform 0.5s ease-in-out;
 			}
 		}
 	}

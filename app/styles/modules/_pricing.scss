@@ -5,13 +5,34 @@
 		margin-top: 60px;
 		text-align: center;
 		font-size: 120px;
-	    font-family: $u-heavy;
+	    font-family: $myriad-bolder;
 	    color: rgb(255, 0, 96);
-	    @include linear-gradient(to right, #ff86dd, #ffe837);
+	
+	    background: -webkit-linear-gradient(left, #ff86dd, #ffe837);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
 	    text-transform: uppercase;
 	    line-height: 1.2em;
 	    -webkit-background-clip: text;
 	    -webkit-text-fill-color: transparent;
+
+	    opacity: 0;
+		position: relative;
+		@include transform(translateY(100px));
+		@include transition(all, 0.5s, ease);
+
+		&.on {
+			opacity: 1;
+			@include transform(translateY(0));
+		}
+
+	    @include MQM(1040) {
+            font-size: rem(60);
+        }
+
+        @include MQM(XS) {
+        	font-size: rem(33);
+        }
 	}
 
 	&--desc {
@@ -21,6 +42,21 @@
 		margin-bottom: 40px;
 		font-family: $myriad-thin;
 		text-align: center;
+
+		opacity: 0;
+		position: relative;
+		@include transform(translateY(100px));
+		@include transition(all, 0.5s, ease);
+
+		&.on {
+			opacity: 1;
+			@include transform(translateY(0));
+		}
+
+		@include MQM(MD) {
+            font-size: rem(20);
+            line-height:rem(24);
+        }
 	}
 
 	&--services {
@@ -43,12 +79,36 @@
 			display: block;
 			text-align: center;
 			text-decoration: none;
+			@include transition(all 0.25s ease);
+			opacity: 0;
+			position: relative;
+			@include transform(translateY(50px));
+			@include transition(all, 0.3s, ease);
+
+			&.on {
+				opacity: 1;
+				@include transform(translateY(0));
+			}
+
+			&:hover {
+				@include transform(translateY(-10px));
+
+				.img-title {
+					color: $red;
+
+				}
+			}
+
+			@include MQM(XS) {
+				margin-bottom: 10px;
+			}
 
 			.img-title {
 				display: block;
 				font-size: rem(14);
 				margin-top: 10px;
 				color: #333;
+				@include transition(all 0.25s ease);
 			}
 
 			.img-thumb {
@@ -111,5 +171,18 @@
 	    font-size: 30px;
 	    color: white;
 	    padding: 18px 60px;
+	    text-decoration: none;
+
+	    &:hover, &:focus, &:active {
+	    	text-decoration: none;
+	    	color: white;
+	    }
+
+
+	    @include MQM(XS) {
+	    	font-size: 21px;
+		    padding: 13px 44px;
+		    border-radius: 5px;
+	    }
 	}
 }

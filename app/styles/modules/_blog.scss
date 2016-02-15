@@ -1,0 +1,49 @@
+.taxi-blog {
+	padding-top: 60px;
+	padding-bottom: 60px;
+	text-align: center;
+
+	-webkit-box-shadow: inset 0px 27px 50px -12px rgba(0,0,0,0.1);
+	-moz-box-shadow: inset 0px 27px 50px -12px rgba(0,0,0,0.1);
+	box-shadow: inset 0px 27px 50px -12px rgba(0,0,0,0.1);
+
+
+	.blog-item {
+
+		&--date {
+			font-size: rem(14);
+			color: #ccccff;
+			font-family: $myriad-thin;
+		}
+
+		&--title {
+			font-size: rem(55);
+			color: #000;
+			font-family: $myriad-thin;
+
+			@include MQM(XS) {
+				font-size: rem(28);
+			}
+		}
+
+		&--intro {
+			font-size: rem(28);
+			color: rgba(51, 51, 51, 0.5);
+			font-family: $myriad-thin;
+			max-width: 80%;
+			margin: 0 auto 20px;
+
+			@include MQM(XS) {
+				font-size: rem(18);
+			}
+		}
+
+		&--more {
+			text-decoration: none;
+
+			&:hover, &:focus, &:active {
+				text-decoration: none;
+			}
+		}
+	}
+}

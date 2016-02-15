@@ -17,12 +17,12 @@
         }
     } @else if $res == 'XS' {
         /* Extra Small Devices, Phones */ 
-        @media only screen and (min-width : 480px) {
+        @media only screen and (min-width : 500px) {
             @content;
         }
     } @else {
         /* Custom, iPhone Retina */ 
-        @media only screen and (min-width : 320px) {
+        @media only screen and (min-width : $res + 'px') {
             @content;
         }
     }
@@ -47,7 +47,7 @@
         }
     } @else if $res == 'XS' {
         /* Extra Small Devices, Phones */ 
-        @media only screen and (max-width : 480px) {
+        @media only screen and (max-width : 500px) {
             @content;
         }
     } @else {
