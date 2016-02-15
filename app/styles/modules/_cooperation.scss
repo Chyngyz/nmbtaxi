@@ -1,0 +1,61 @@
+.taxi-cooperation {
+	background-image: -moz-linear-gradient( 90deg, rgb(177,209,248) 0%, rgb(147,140,213) 100%);
+    background-image: -webkit-linear-gradient( 90deg, rgb(177,209,248) 0%, rgb(147,140,213) 100%);
+    background-image: -ms-linear-gradient( 90deg, rgb(177,209,248) 0%, rgb(147,140,213) 100%);
+    padding-top: 2px;
+    padding-bottom: 88px;
+
+    &--title {
+    	font-size: rem(48);
+    	color: #fff;
+    	font-family: $myriad-thin;
+    	text-align: center;
+    	line-height: 1.2;
+    	margin-top: 40px;
+    	margin-bottom: 30px;
+    }
+
+    &--l {
+    	border-right: 1px solid white;
+    	padding-right: 50px;
+    }
+
+    &--steps {
+    	color: #fff;
+    	font-size: rem(22);
+    	font-family: $myriad-thin;
+
+    	li {
+    		margin-bottom: 25px;
+
+    		&:last-child {
+    			margin-bottom: 40px;
+    		}
+
+    	}
+
+    	&-desc {
+    		font-style: italic;
+    		font-size: rem(18);
+    		color: #fff;
+    		font-family: $myriad-thin;
+    	}
+    }
+
+    &--r {
+    	padding-left: 50px;
+    }
+
+    &--support {
+    	font-size: rem(24);
+    	color: #fff;
+    	font-family: $myriad-thin;
+    	margin-top: 20px;
+    }
+
+    &--time {
+    	font-family: $myriad-thin;
+    	color: #fff;
+    	font-size: rem(170);
+    }
+}

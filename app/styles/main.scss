@@ -10,11 +10,13 @@
 // Fonts
 @import 'base/fonts';
 
+// Utils
+@import 'utils/responsive';
+
 // General Styles
 @import 'base/general';
 
-// Utils
-@import 'utils/responsive';
+
 
 // Vendors
 @import 'vendor/bootstrap-grid/bootstrap';

@@ -1,0 +1,178 @@
+%desc {
+	color: #404445;
+	font-size: rem(28);
+	line-height: rem(40);
+	margin-bottom: 40px;
+	font-family: $myriad-thin;
+}
+
+%label {
+	font-size: 120px;
+    font-family: $u-heavy;
+    color: rgb(255, 0, 96);
+    text-transform: uppercase;
+    line-height: 1.2em;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.taxi-about {
+	position: relative;
+	padding-bottom: 270px;
+
+
+	&--iphone {
+		position: absolute;
+		left: 0px;
+		top: -150px;
+		z-index: 2;
+
+	}
+
+	&--android {
+		position: absolute;
+		right: 0px;
+		top: 430px;
+		z-index: 2;
+	}
+
+	&--dapp {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		z-index: 2;
+	}
+
+	.container {
+		position: relative;
+		z-index: 5;
+	}
+
+	&--clients {
+		margin-top: 160px;
+
+		&-label {
+			margin-left: 250px;
+			@extend %label;
+			@include linear-gradient(to right, #ff3636, #ff8199);
+		}
+
+		&-desc {
+			max-width: 680px;
+			@extend %desc;
+
+			&-wrap {
+				margin-left: 390px;
+			}
+		}
+	}
+
+	&--drivers {
+		margin-top: 200px;
+
+		&-label {
+			margin-left: 238px;
+			@extend %label;
+			@include linear-gradient(to right, #ffda1e, #fef270);
+		}
+
+		&-desc {
+			max-width: 600px;
+			@extend %desc;
+
+			&-wrap {
+				margin-left: 250px;
+			}
+		}
+	}
+
+
+}
+
+
+.taxi-admin {
+	position: relative;
+	overflow: hidden;
+	box-shadow: 0 2px 76px 0 rgba(43, 82, 121, 0.23);
+
+	&--operators {
+		margin-top: 60px;
+		text-align: center;
+
+		&-label {
+			@extend %label;
+			@include linear-gradient(to right, #92a9fd, #a4f7f2);
+		}
+
+		&-desc {
+			@extend %desc;
+		}
+		
+		&-thumbs {
+			margin-top: 60px;
+
+			ul {
+				list-style: none;
+				@include display(flex);
+				@include justify-content(space-between);
+				@include flex-wrap(wrap);
+				width: 100%;
+			}
+
+			li {
+				display: inline-block;
+			}
+
+			a {
+				display: block;
+				text-align: center;
+				text-decoration: none;
+
+				.img-title {
+					display: block;
+					font-size: rem(14);
+					margin-top: 10px;
+					color: #333;
+				}
+
+				.img-thumb {
+					box-shadow: 0 8px 6px 0 rgba(152, 193, 250, 0.1), 0 5px 28px 0 rgba(174, 190, 207, 0.19);
+					border: 5px solid #fff;
+				    border-radius: 10px;
+				    overflow: hidden;
+				    display: block;
+				}
+
+				img {
+					width: 100%;
+				    height: auto;
+				}
+			}
+		}
+	}
+
+
+	&--managers {
+		margin-top: 120px;
+		text-align: center;
+
+		&-label {
+			@extend %label;
+			@include linear-gradient(to right, #88d1f2, #bbee86);
+		}
+
+		&-desc {
+			color: #404445;
+			font-size: rem(28);
+			line-height: rem(40);
+			font-family: $myriad-thin;
+
+			&-p {
+				color: #333;
+				font-size: rem(18);
+				margin-bottom: 40px;
+			}
+		}
+	}
+}

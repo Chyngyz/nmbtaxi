@@ -1,0 +1,28 @@
+.taxi-knowh {
+	padding-top: 40px;
+	padding-bottom: 40px;
+
+	&--label {
+		font-size: rem(28);
+		line-height: 1.1;
+		font-family: $myriad-thin;
+		text-align: center;
+		margin-bottom: 40px;
+	}
+
+	&--sm {
+		color: $light-pink;
+		font-size: rem(18);
+		font-family: $myriad-thin;
+		text-align: center;
+		line-height: 1;
+	}
+
+	&--num {
+		color: $light-pink;
+		font-size: rem(70);
+		text-align: center;
+		font-family: $myriad-thin;
+		line-height: 1.2;
+	}
+}

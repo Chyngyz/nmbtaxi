@@ -1,0 +1,128 @@
+.taxi-header {
+	@include display(flex);
+	@include flex-direction(row);
+	@include justify-content(space-between);
+	@include align-items(center);
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 20;
+	width: 100%;
+	padding-left:60px;
+	padding-right:60px;
+	padding-top: 38px;
+
+	&.shrink {
+		background-color: #FEDB4C;
+	    -moz-box-shadow: 0 1px 13px 0 #fea400;
+	    -webkit-box-shadow: 0 1px 13px 0 #fea400;
+	    box-shadow: 0 1px 13px 0 #fea400;
+	}
+
+
+
+	.brand {
+		display: inline-block;
+		height: 26px;
+		width: 155px;
+
+		a {
+			display: block;
+		}
+
+		img {
+			width: 100%;
+			height: auto;
+		}
+	}
+
+	.main-nav {
+		display: inline-block;
+		max-width: 785px;
+		
+
+		ul {
+			list-style: none;
+			@include display(flex);
+			@include flex-direction(row);
+			@include justify-content(space-between);
+			width: 680px;
+			max-width: 750px;
+		}
+
+		li {
+			display: inline-block;
+		}
+
+		a {
+			color: #000;
+			font-size: rem(18);
+			font-family: $myriad-thin;
+			display: block;
+			text-decoration: none;
+			padding: 5px 0;
+			line-height: 1;
+			position: relative;
+			@include transition(color 0.1s ease-in-out);
+
+			&:after {
+				content: "";
+				position: absolute;
+				bottom: -3px;
+				left: 0;
+				height: 0;
+				width: 100%;
+				background-color: rgba($pink, 0.67);
+				@include transition(height 0.1s ease-in-out);
+			}
+
+			&:hover, &:active, &:focus, &.active {
+				color: $pink;
+
+				&:after {
+					height: 3px;
+				}
+			}
+		}
+	}
+
+	&--r {
+		display: inline-block;
+	}
+
+	&--btn {
+	    border-radius: 3px;
+	    background-color: rgb(255, 255, 255);
+	    box-shadow: 0 1px 0 0 rgba(255, 135, 76, 0.27);
+	    font-size: 18px;
+	    color: rgb(255, 64, 68);
+	    margin-right: 35px;
+	}
+
+	&--lang {
+		display: inline-block;
+
+		ul {
+			list-style: none;
+		}
+
+		li {
+			display: inline-block;
+			margin-right: 20px;
+
+			&:last-of-type {
+				margin-right: 0;
+			}
+		}
+
+		a {
+			text-decoration: none;
+			@include transition(color 0.1s ease-in);
+			color: #000;
+
+			&:hover, &:focus, &:active, &.active {
+				color: #fff;
+			}
+		}
+	}
+}

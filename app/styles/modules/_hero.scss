@@ -1,0 +1,60 @@
+.taxi-hero {
+	background-color: $yellow;
+	position: relative;
+	width: 100%;
+	height: 100vh;
+	padding-top: 100px;
+
+	&--content {
+		position: absolute;
+		top: 50%;
+		left: 0;
+		width: 100%;
+		@include transform(translateY(-50%));
+
+	}
+
+	&--title {
+		margin-top: 55px;
+		font-family: $u-thin;
+
+		@include MQ(MD) {
+			font-size: rem(84);
+			line-height: rem(92);
+		}
+
+		@include MQ(LG) {
+			font-size: rem(100);
+			line-height: rem(120);
+		}
+		
+		strong {
+			font-family: $u-heavy;
+		}
+	}
+
+	&--btn {
+		margin-top: 40px;
+		padding: 20px 60px;
+	    border-radius: 8px;
+	    background-color: #fff;
+	    box-shadow: 0 3px 0 0 rgba(255, 135, 76, 0.27);
+	    font-size: rem(30);
+	    font-family: $myriad-thin;
+	    color: $red;
+	    line-height: 1.1;
+	}
+
+	&--scroll-down {
+		height: 49px;
+		width: 29px;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 37px;
+
+		img {
+			height: 100%;
+			width: 100%;
+		}
+	}
+}
