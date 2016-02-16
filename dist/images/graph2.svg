@@ -31,12 +31,12 @@
 	
 		<linearGradient id="XMLID_9_" gradientUnits="userSpaceOnUse" x1="1431.2" y1="-615" x2="1431.2" y2="-783.7152" gradientTransform="matrix(1 0 0 1 0 804)">
 		<stop  offset="0" style="stop-color:#94DFFF;stop-opacity:0"/>
-		<stop  offset="0.6183" style="stop-color:#45BBE8;stop-opacity:0.2"/>
+		<stop  offset="0.6183" style="stop-color:#45BBE8;stop-opacity:0.1"/>
 		<stop  offset="0.9462" style="stop-color:#94F4FF;stop-opacity:0.3"/>
 	</linearGradient>
 	
 		<linearGradient id="XMLID_10_" gradientUnits="userSpaceOnUse" x1="630.2937" y1="-699.3576" x2="2232.0999" y2="-699.3576" gradientTransform="matrix(1 0 0 1 0 804)">
-		<stop  offset="0" style="stop-color:#94DFFF"/>
+		<stop  offset="0" style="stop-color:#BFF6FF"/>
 		<stop  offset="0.4731" style="stop-color:#7FEEFF"/>
 		<stop  offset="0.6183" style="stop-color:#55EEFF"/>
 		<stop  offset="0.9462" style="stop-color:#45FFE8"/>
