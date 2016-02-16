@@ -4,6 +4,10 @@
 	width: 100%;
 	height: 100vh;
 	padding-top: 100px;
+	background-image: url(../images/bg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 
 	&--content {
 		position: absolute;

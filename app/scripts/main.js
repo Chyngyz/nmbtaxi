@@ -7,7 +7,7 @@ $(document).ready(function() {
 	    return false;
 	})
 
-	$(".taxi-hero--map").backstretch("images/map.svg");
+	//$(".taxi-hero--map").backstretch("images/map.svg");
 
 	// Blog slide
 	$("#owl-blog").owlCarousel({
