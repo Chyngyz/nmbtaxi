@@ -184,6 +184,17 @@ ul {
   margin-bottom: 40px;
   display: block;
 
+  opacity: 0;
+  position: relative;
+  @include transform(translateY(100px));
+  @include transition(all, 0.3s, ease-in-out);
+  @include transition-delay(all, 0.3s, ease-in-out);
+
+  &.on {
+    opacity: 1;
+    @include transform(translateY(0));
+  }
+
   &:hover, &:focus, &:active {
     text-decoration: none;
   }

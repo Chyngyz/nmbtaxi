@@ -129,6 +129,16 @@ $(document).ready(function() {
 		}
 	});
 
+	$('.screen-thumbs').magnificPopup({
+		type: 'image',
+		closeOnContentClick: true,
+		mainClass: 'mfp-img-mobile',
+		image: {
+			verticalFit: true
+		}
+		
+	});
+
 
 
 	// Close any popup trigger
@@ -174,6 +184,7 @@ $(document).ready(function() {
 	$('.taxi-admin--managers').waypoint(function() {
 		$('.taxi-admin--managers').addClass('on');
 		$('svg#svggraph').addClass('grown');
+		$('.taxi-download').addClass('on');
 	}, {
 		offset: '50%'
 	});

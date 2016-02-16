@@ -67,14 +67,26 @@
 		}
 	}
 
+	.bottom-screen-wrap {
+		position: absolute;
+		width: 100%;
+		bottom: 0;
+		height:270px;
+		overflow: hidden;
+
+		@include MQM(SM) {
+			height: 130px;
+		}
+	}
+
 	&--dapp {
 		position: absolute;
-		bottom: 0;
+		bottom: -100%;
 		left: 50%;
 		z-index: 2;
 		opacity: 0;
 		@include transform(translateX(-50%));
-		@include transition(all, 0.55s, ease);
+		@include transition(all, 0.7s, ease);
 
 		@include MQM(1375) {
 			width: 100%;
@@ -82,6 +94,7 @@
 
 		&.on {
 			opacity: 1;
+			bottom: 0;
 		}
 	}
 
@@ -268,7 +281,7 @@
 				@include transform(translateY(0));
 			}
 
-			.taxi-admin--operators-desc {
+			.taxi-admin--operators-desc-wrap {
 				opacity: 1;
 				@include transform(translateY(0));
 			}
@@ -306,10 +319,12 @@
 		        font-size: rem(20);
 		    }
 
-		    opacity: 0;
-			position: relative;
-			@include transform(translateY(100px));
-			@include transition(all, 0.5s, ease-in-out);
+		    &-wrap {
+		    	opacity: 0;
+				position: relative;
+				@include transform(translateY(100px));
+				@include transition(all, 0.5s, ease-in-out);
+		    }
 		}
 		
 		&-thumbs {
@@ -317,10 +332,19 @@
 
 			ul {
 				list-style: none;
-				@include display(flex);
-				@include justify-content(space-between);
-				@include flex-wrap(wrap);
+				@include MQ(SM) {
+					@include display(flex);
+					@include justify-content(space-between);
+					@include flex-wrap(nowrap);
+				}
+				
 				width: 100%;
+
+				@include MQM(SM) {
+					overflow-x: scroll;
+					display: block;
+					white-space: nowrap;
+				}
 			}
 
 			li {
@@ -348,7 +372,7 @@
 				}
 
 				&:hover {
-					@include transform(translateY(-10px));
+					@include transform(translateY(-5px));
 
 					.img-title {
 						color: $red;
@@ -381,7 +405,7 @@
 
 
 	&--managers {
-		margin-top: 120px;
+		margin-top: 80px;
 		text-align: center;
 
 		&.on {
@@ -390,7 +414,7 @@
 				@include transform(translateY(0));
 			}
 
-			.taxi-admin--managers-desc {
+			.taxi-admin--managers-wrap {
 				opacity: 1;
 				@include transform(translateY(0));
 			}
@@ -428,16 +452,18 @@
 			}
 		}
 
+		&-wrap {
+			opacity: 0;
+			position: relative;
+			@include transform(translateY(100px));
+			@include transition(all, 0.5s, ease-in-out);
+		}
+
 		&-desc {
 			color: #404445;
 			font-size: rem(28);
 			line-height: rem(40);
 			font-family: $myriad-thin;
-
-			opacity: 0;
-			position: relative;
-			@include transform(translateY(100px));
-			@include transition(all, 0.5s, ease-in-out);
 
 			@include MQM(MD) {
 		        font-size: rem(20);

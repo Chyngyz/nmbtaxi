@@ -9,6 +9,7 @@
     color: white;
     padding: 18px 60px;
     text-decoration: none;
+    border: none;
 
     @include MQM(XS) {
     	font-size: 21px;
