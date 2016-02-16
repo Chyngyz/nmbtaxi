@@ -255,7 +255,7 @@ ul {
 .hidden-sm {
   display: block;
 
-  @include MQM(SM) {
+  @include MQM(767) {
     display: none;
   }
 }
