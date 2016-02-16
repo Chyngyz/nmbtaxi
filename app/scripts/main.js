@@ -235,10 +235,16 @@ $(document).ready(function() {
 
 
 
-	$('.main-nav a[href*="#"]:not([href="#"])').click(function() {
+	$('.main-nav a[href*="#"]:not([href="#"]), .main-mobile-menu .nav a[href*="#"]:not([href="#"])').click(function(e) {
 	    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
 	      var target = $(this.hash);
 	      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+
+	      // if its mobile menu, close if opened
+	      if(mobileMenuState) {
+	      	$mobileMenu.removeClass('open');
+	      }
+
 	      if (target.length) {
 	        $('html, body').animate({
 	          scrollTop: target.offset().top - 50

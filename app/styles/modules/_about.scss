@@ -76,6 +76,10 @@
 		@include transform(translateX(-50%));
 		@include transition(all, 0.55s, ease);
 
+		@include MQM(1375) {
+			width: 100%;
+		}
+
 		&.on {
 			opacity: 1;
 		}
