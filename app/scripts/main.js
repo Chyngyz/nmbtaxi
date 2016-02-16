@@ -148,7 +148,7 @@ $(document).ready(function() {
 
 
 	$('.taxi-about--clients').waypoint(function() {
-		$('.taxi-about--iphone').addClass('on');
+		//$('.taxi-about--iphone').addClass('on');
 		$('.taxi-about--clients').addClass('on');
 	}, {
 		offset: '70%'
@@ -157,12 +157,16 @@ $(document).ready(function() {
 	$('.taxi-about--drivers').waypoint(function() {
 		$('.taxi-about--android').addClass('on');
 		$('.taxi-about--drivers').addClass('on');
-		setTimeout(function() {
-			$('.taxi-about--dapp').addClass('on');
-		}, 1000);
 	}, {
 		offset: '70%'
 	});
+	$('.bottom-screen-wrap').waypoint(function() {
+		$('.taxi-about--dapp').addClass('on');
+	}, {
+		offset: '50%'
+	})
+
+				
 
 	$('.taxi-admin--operators').waypoint(function() {
 		$('.taxi-admin--operators').addClass('on');

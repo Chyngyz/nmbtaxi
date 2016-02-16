@@ -4,15 +4,20 @@ $(document).ready(function() {
         var vh = $( window ).height();
         var vw = $( window ).width();
 
-        console.log(vh, vw);
+        var $map = $('.taxi-hero--map svg');
 
-        if(vw > 1600) {
-            $('.taxi-hero--map svg').css({
+        if(vw > 1600 || vh < 768) {
+            $map.css({
                 "height": "auto",
                 "width": "100%"
             });
+        } else if(vw < 1440 && vh > 885){
+            $map.css({
+                "height": "100%",
+                "width": "auto"
+            });
         } else {
-            $('.taxi-hero--map svg').css({
+            $map.css({
                 "height": "100%",
                 "width": "auto"
             });
