@@ -37,7 +37,10 @@
 			padding-left: auto;
 			width: auto;
 			border-left: none;
+			padding-left: 0;
 		}
+
+
 	}
 
 
@@ -60,4 +63,38 @@
 		@include flex-wrap(wrap);
 		@include justify-content(space-between);
 	}
+
+	.col-fw {
+		@include MQM(XS) {
+			width: 100%;
+			border-bottom: 1px solid #ccc;
+			margin-bottom: 20px;
+
+			img {
+				float: left;
+				margin-top: 20px;
+			}
+
+			p {
+				float: right;
+			}
+		}
+
+	}
+
+	.col-hw {
+		@include MQM(XS) {
+			width: 50%;
+			display: inline-block;
+			vertical-align: top;
+		}
+	}
+
+	hr {
+		width: 100%;
+	}
+
+
+
+
 }
