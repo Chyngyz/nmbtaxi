@@ -1,32 +1,39 @@
 $(document).ready(function() {
 
-    function positionSvg() {
-        var vh = $( window ).height();
-        var vw = $( window ).width();
+    var min_w = 300; // minimum svg width
+    var svg_w_orig;  // original svg dimensions
+    var svg_h_orig;
 
-        var $map = $('.taxi-hero--map svg');
+    svg_w_orig = 1600;
+    svg_h_orig = 1000;
+    
+    function resizeToCover() {
+        
+        // set the map to the fullscreen size
+        $('.taxi-hero--map').width($(window).width());
+        $('.taxi-hero--map').height($(window).height());
 
-        if(vw > 1600 || vh < 768) {
-            $map.css({
-                "height": "auto",
-                "width": "100%"
-            });
-        } else if(vw < 1440 && vh > 885){
-            $map.css({
-                "height": "100%",
-                "width": "auto"
-            });
-        } else {
-            $map.css({
-                "height": "100%",
-                "width": "auto"
-            });
-        }
-    }
+        // use largest scale factor of hor/vert
+        var scale_h = $(window).width() / svg_w_orig;
+        var scale_v = $(window).height() / svg_h_orig;
+        var scale = scale_h > scale_v ? scale_h : scale_v;
+
+        // should be scaled width < minimum width
+        if (scale * svg_w_orig < min_w) {scale = min_w / svg_w_orig;};
+
+        // scale
+        $('#mapsvg').width(scale * svg_w_orig);
+        $('#mapsvg').height(scale * svg_h_orig);
+        // center
+        $('.taxi-hero--map').scrollLeft(($('#mapsvg').width() - $(window).width()) / 2);
+        $('.taxi-hero--map').scrollTop(($('#mapsvg').height() - $(window).height()) / 2);
+    };
+
+    
 
 
     $( window ).resize(function() {
-      positionSvg();
+      resizeToCover();
     });
 
 
@@ -42,7 +49,11 @@ $(document).ready(function() {
 
         g.append(f);
 
-        positionSvg();
+
+        // Set size of svg
+        $(window).trigger('resize');
+        // Change the bg image
+        $('.taxi-hero').css('background-image', 'url(../images/bg-clean.jpg)');
 
         var svgEl = Snap('#mapsvg');
         var gro1 = svgEl.g();
@@ -114,10 +125,10 @@ $(document).ready(function() {
 
 
         function animation(path, el, group, duration) {
-            // SVG A - Draw Path
+            // Length of path
             var len = path.getTotalLength();
 
-            // SVG1 - Animate Path
+            // Animate Path
             path.attr({
               stroke: '#fff',
               strokeWidth: 2,
@@ -128,13 +139,13 @@ $(document).ready(function() {
               "stroke-dasharray": "12 6",
               "stroke-dashoffset": len
             }).animate({"stroke-dashoffset": 10}, 40000, mina.easeinout, function() {
+                // recurse animation
                 animation(path, el, group, duration);
             });
 
 
             Snap.animate(0, len, function( value ) {
                 var movePoint = path.getPointAtLength( value );
-                //el.attr({ cx: movePoint.x, cy: movePoint.y });
                 group.transform('t' + parseInt(movePoint.x - 14 ) + ',' + parseInt( movePoint.y - 15) + 'r0');
             }, duration, mina.easeinout);
         }

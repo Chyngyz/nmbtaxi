@@ -1,112 +1,82 @@
-@-webkit-keyframes ani-mouse {
-	0% {
-	opacity: 1;
-	top: 29%;
-	}
-	15% {
-	opacity: 1;
-	top: 50%;
-	}
-	50% {
-	opacity: 0;
-	top: 50%;
-	}
-	100% {
-	opacity: 0;
-	top: 29%;
+@-webkit-keyframes mouse-wheel { 
+    0% {
+        -webkit-transform: scaleY(.4)translateY();
+        transform: scaleY(.4)translateY();
+    }
+    20% {
+        -webkit-transform: scaleY(1)translateY();
+        transform: scaleY(1)translateY();
+    }
+    60% {
+        -webkit-transform: scaleY(.4)translateY(12px);
+        transform: scaleY(.4)translateY(12px);
+    }
+    100% {
+        -webkit-transform: scaleY(.4)translateY();
+        transform: scaleY(.4)translateY();
+    }
+}
+@keyframes mouse-wheel { 
+    0% {
+        -webkit-transform: scaleY(.4)translateY();
+        transform: scaleY(.4)translateY();
+    }
+    20% {
+        -webkit-transform: scaleY(1)translateY();
+        transform: scaleY(1)translateY();
+    }
+    60% {
+        -webkit-transform: scaleY(.4)translateY(12px);
+        transform: scaleY(.4)translateY(12px);
+    }
+    100% {
+        -webkit-transform: scaleY(.4)translateY();
+        transform: scaleY(.4)translateY();
+    }
+}
+
+
+.mouse {
+    position: absolute;
+    box-sizing: border-box;
+    left: 50%;
+    bottom: 35px;
+    width: 30px;
+    margin-left: -15px;
+    height: 48px;
+    border-radius: 15px;
+    border: 2px solid #fff;
+    -webkit-transform: translateZ();
+    transform: translateZ();
+    cursor: pointer;
+    @include transition(opacity, 0.4s, ease);
+
+    &.hide {
+    	opacity: 0;
+    }
+
+    @include MQM(767) {
+    	display: none;
+    }
+
+    &--wheel {
+	    position: absolute;
+	    left: 50%;
+	    top: 8px;
+	    margin-left: -2px;
+	    width: 4px;
+	    height: 9px;
+	    background: #fff;
+	    border-radius: 2px;
+	    -webkit-animation: mouse-wheel 1.25s infinite linear;
+	    animation: mouse-wheel 1.25s infinite linear;
+	    -webkit-transform-origin: 50% 0%;
+	    -ms-transform-origin: 50% 0%;
+	    transform-origin: 50% 0%;
 	}
 }
-@-moz-keyframes ani-mouse {
-	0% {
-	opacity: 1;
-	top: 29%;
-	}
-	15% {
-	opacity: 1;
-	top: 50%;
-	}
-	50% {
-	opacity: 0;
-	top: 50%;
-	}
-	100% {
-	opacity: 0;
-	top: 29%;
-	}
+
+.touch .mouse { 
+	display: none 
 }
-@keyframes ani-mouse {
-	0% {
-	opacity: 1;
-	top: 29%;
-	}
-	15% {
-	opacity: 1;
-	top: 50%;
-	}
-	50% {
-	opacity: 0;
-	top: 50%;
-	}
-	100% {
-	opacity: 0;
-	top: 29%;
-	}
-}
-.scroll-btn {
-	display: block;
-	position: absolute;
-	left: 0;
-	right: 0;
-	bottom: -100px;
-	text-align: center;
 
-	& > * {
-		display: inline-block;
-		line-height: 18px;
-		font-size: 13px;
-		font-weight: normal;
-		color: #7f8c8d;
-		color: #ffffff;
-		font-family: "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
-		letter-spacing: 2px;
-
-
-		&:hover, &:focus, &.active {
-			color: #ffffff;
-		}
-
-
-		&:hover, &:focus, &.active {
-			opacity: 0.8;
-			filter: alpha(opacity=80);
-		}
-	}
-
-	.mouse {
-		position: relative;
-		display: block;
-		width: 33px;
-		height: 55px;
-		margin: 0 auto 20px;
-		-webkit-box-sizing: border-box;
-		-moz-box-sizing: border-box;
-		box-sizing: border-box;
-		border: 2px solid white;
-		border-radius: 23px;
-
-		& > * {
-			position: absolute;
-			display: block;
-			top: 29%;
-			left: 50%;
-			width: 8px;
-			height: 8px;
-			margin: -4px 0 0 -4px;
-			background: white;
-			border-radius: 50%;
-			-webkit-animation: ani-mouse 1.5s linear infinite;
-			-moz-animation: ani-mouse 1.5s linear infinite;
-			animation: ani-mouse 1.5s linear infinite;
-		}
-	}
-}
