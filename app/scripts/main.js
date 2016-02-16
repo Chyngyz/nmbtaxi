@@ -319,7 +319,6 @@ $(document).ready(function() {
 	   
 	   	if (lastId !== id) {
 	       	lastId = id;
-	       	console.log(menuItems.removeClass("active").filter('a[href="#'+id+'"]'));
 	       	// Set/remove active class
 	       	menuItems.removeClass("active").filter('a[href="#'+id+'"]').addClass("active");
 
