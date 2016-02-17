@@ -115,7 +115,7 @@
 				@include transition(height 0.1s ease-in-out);
 			}
 
-			&:hover, &:focus, &.active {
+			&:hover, &.active {
 				color: $pink;
 
 				&:after {

@@ -54,9 +54,9 @@
 .taxi-kn {
 	opacity: 0;
     position: relative;
-    @include transform(translateY(50px));
+    @include transform(translateY(80px));
     @include transition(all, 0.5s, ease);
-    @include transition-delay(0.3s);
+    
 
     &.on {
         opacity: 1;
