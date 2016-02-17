@@ -2,13 +2,14 @@ $(document).ready(function() {
 	var mobileMenuState = false;
 	var $mobileMenu = $('.main-mobile-menu');
 
+	// Scroll down button
 	setTimeout(function() {
 		$('.mouse').addClass('hide');
 		setTimeout(function() {
 			$('.mouse').remove();
 		}, 400);
 	}, 6000);
-
+	// Scroll on mouse click
 	$('.mouse').click(function() {
 	    $("html, body").animate({ scrollTop: $(".taxi-hero").height()+120 }, "slow");
 	    return false;
@@ -25,7 +26,7 @@ $(document).ready(function() {
       navigationText: ["", ""]
   	});
 	
-
+	// Disable drag on img and a tags
 	$("img, a").on("dragstart", function(event) { event.preventDefault(); });
 
 	// Mobile menu triggers
@@ -33,14 +34,18 @@ $(document).ready(function() {
 		$mobileMenu.addClass('open');
 		mobileMenuState = true;
 	});
-
 	$('.mobile-menu-close').click(function() {
 		$mobileMenu.removeClass('open');
 		mobileMenuState = false;
 	})
 
+
+
+
 	// Masked Input
-	$("#telnum").mask("+99999999?9999999");
+	$("#telephone").mask("+99999999?9999999");
+
+
 
 	// Sticky header
 	var docElem = document.documentElement,
@@ -74,23 +79,7 @@ $(document).ready(function() {
 
 	init();
 
-	// Order demo popups
-	$('.taxi-hero--btn, .taxi-pricing--btn').magnificPopup({
-		type: 'inline',
 
-		fixedContentPos: false,
-		fixedBgPos: true,
-
-		overflowY: 'auto',
-
-		closeBtnInside: true,
-		preloader: false,
-		
-		midClick: true,
-		removalDelay: 300,
-		showCloseBtn: false,
-		mainClass: 'my-mfp-slide-bottom'
-	});
 
 	// For clients popup
 	$('.taxi-clients').magnificPopup({
@@ -110,8 +99,8 @@ $(document).ready(function() {
 		mainClass: 'my-mfp-slide-bottom'
 	});
 
-	// Popup with callback for mobile menu
-	$('.taxi-header--btn').magnificPopup({
+	// Order demo with callback for mobile menu
+	$('.taxi-header--btn, .taxi-hero--btn, .taxi-pricing--btn').magnificPopup({
 		type: 'inline',
 
 		fixedContentPos: false,
@@ -128,7 +117,7 @@ $(document).ready(function() {
 		mainClass: 'my-mfp-slide-bottom',
 		callbacks: {
 			beforeOpen: function() {
-				console.log(mobileMenuState);
+				//console.log(mobileMenuState);
 				if(mobileMenuState) {
 					$mobileMenu.removeClass('open');
 				}
@@ -136,6 +125,7 @@ $(document).ready(function() {
 		}
 	});
 
+	// Popup on screenshots
 	$('.screen-thumbs').magnificPopup({
 		type: 'image',
 		closeOnContentClick: true,
@@ -153,14 +143,13 @@ $(document).ready(function() {
 		$.magnificPopup.close();
 	});
 
-
+	// Animations on scroll 
 	$('.taxi-about--clients').waypoint(function() {
 		//$('.taxi-about--iphone').addClass('on');
 		$('.taxi-about--clients').addClass('on');
 	}, {
 		offset: '70%'
 	});
-
 	$('.taxi-about--drivers').waypoint(function() {
 		$('.taxi-about--android').addClass('on');
 		$('.taxi-about--drivers').addClass('on');
@@ -171,9 +160,7 @@ $(document).ready(function() {
 		$('.taxi-about--dapp').addClass('on');
 	}, {
 		offset: '50%'
-	})
-
-				
+	});		
 
 	$('.taxi-admin--operators').waypoint(function() {
 		$('.taxi-admin--operators').addClass('on');
@@ -326,7 +313,113 @@ $(document).ready(function() {
 	});
 
 
-		
+	// Success Modal
+	function successModal() {
+		var el = $('#success-modal');
+		if (el.length) {
+		    $.magnificPopup.open({
+		        items: {
+		            src: el
+		        },
+		        type: 'inline',
+		        fixedContentPos: false,
+				fixedBgPos: true,
+
+				overflowY: 'auto',
+
+				closeBtnInside: true,
+				preloader: false,
+				
+				midClick: true,
+				removalDelay: 300,
+				showCloseBtn: false,
+				mainClass: 'my-mfp-slide-bottom'
+		    });
+		}
+	};
+	// Error Modal
+	function errorModal() {
+		var el = $('#error-modal');
+		if (el.length) {
+		    $.magnificPopup.open({
+		        items: {
+		            src: el
+		        },
+		        type: 'inline',
+		        fixedContentPos: false,
+				fixedBgPos: true,
+
+				overflowY: 'auto',
+
+				closeBtnInside: true,
+				preloader: false,
+				
+				midClick: true,
+				removalDelay: 300,
+				showCloseBtn: false,
+				mainClass: 'my-mfp-slide-bottom'
+		    });
+		}
+	};
+	
+
+	//
+	// Code taken from the previous namba taxi
+	// 
+	// =======================================
+	$('#leaveDemoRequest').submit(function(e){
+        var $form = $($(this)[0]);
+        var data = $form.serializeArray();
+        $.post($form.prop('action'), data)
+            .success(function(data){
+                $form.find('input').val('');
+                // Close the request modal
+            	$.magnificPopup.close();
+            	//Show success modal
+            	setTimeout(function() {
+                	successModal();
+            	}, 500);
+            	
+                
+            })
+            .fail(function(e){
+            	$form.find('input').val('');
+            	// Close the request modal
+            	$.magnificPopup.close();
+            	//Show error modal
+            	setTimeout(function() {
+                	errorModal();
+            	}, 500);
+            	
+            });
+        return false;
+    })
+
+
+	$.ajaxSetup({
+	    beforeSend: function(xhr, settings) {
+	        function getCookie(name) {
+	            var cookieValue = null;
+	            if (document.cookie && document.cookie != '') {
+	                var cookies = document.cookie.split(';');
+	                for (var i = 0; i < cookies.length; i++) {
+	                    var cookie = jQuery.trim(cookies[i]);
+	                    // Does this cookie string begin with the name we want?
+	                    if (cookie.substring(0, name.length + 1) == (name + '=')) {
+	                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+	                        break;
+	                    }
+	                }
+	            }
+	            return cookieValue;
+	        }
+
+	        if(settings.type == 'POST') {
+	            xhr.setRequestHeader("X-CSRFToken", getCookie('csrftoken'));
+	        }
+	     }
+	});
+
 
 });
 

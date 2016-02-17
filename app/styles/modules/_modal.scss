@@ -46,6 +46,52 @@
 	border-bottom-left-radius: 6px;
 	border-bottom-right-radius: 6px;
 	border-top-left-radius: 6px;
+
+	@include MQM(660) {
+		width: 95%;
+		padding: 10px;
+	}
+
+
+	&--icon {
+		height: 200px;
+	    width: 200px;
+	    margin-left: auto;
+	    margin-right: auto;
+	    margin-top: 30px;
+	}
+
+	h1 {
+	    font-size: rem(46);
+	    text-align: center;
+	    font-family: $myriad-thin;
+	    line-height: 1;
+	}
+
+	.notification {
+		margin-bottom: 60px;
+		&-title {
+			font-size: rem(54);
+			text-align: center;
+			font-family: $myriad-thin;
+		    line-height: 1;
+		   
+		}
+
+		&-text {
+			text-align: center;
+			font-family: $myriad-thin;
+		    line-height: 1.2;
+		}
+
+		&.success {
+			color: #797979;
+		}
+
+		&.error {
+			color: #ff3e64;
+		}
+	}
 }
 
 

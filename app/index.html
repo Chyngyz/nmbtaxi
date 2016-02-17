@@ -461,7 +461,7 @@
         <div class="taxi-pricing--services">
           <ul>
             <li>
-              <a href="#">
+              <a href="http://lorempixel.com/800/600" class="screen-thumbs">
                 <span class="img-thumb">
                   <img src="http://lorempixel.com/100/100" alt="">
                 </span>
@@ -469,7 +469,7 @@
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="http://lorempixel.com/800/600" class="screen-thumbs">
                 <span class="img-thumb">
                   <img src="http://lorempixel.com/100/100" alt="">
                 </span>
@@ -477,7 +477,7 @@
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="http://lorempixel.com/800/600" class="screen-thumbs">
                 <span class="img-thumb">
                   <img src="http://lorempixel.com/100/100" alt="">
                 </span>
@@ -485,7 +485,7 @@
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="http://lorempixel.com/800/600" class="screen-thumbs">
                 <span class="img-thumb">  
                   <img src="http://lorempixel.com/100/100" alt="">
                 </span>
@@ -493,7 +493,7 @@
                 </a>
             </li>
             <li>
-              <a href="#">
+              <a href="http://lorempixel.com/800/600" class="screen-thumbs">
                 <span class="img-thumb">
                   <img src="http://lorempixel.com/100/100" alt="">
                 </span>
@@ -501,7 +501,7 @@
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="http://lorempixel.com/800/600" class="screen-thumbs">
                 <span class="img-thumb">
                   <img src="http://lorempixel.com/100/100" alt="">
                 </span>
@@ -509,7 +509,7 @@
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="http://lorempixel.com/800/600" class="screen-thumbs">
                 <span class="img-thumb">
                   <img src="http://lorempixel.com/100/100" alt="">
                 </span>
@@ -630,24 +630,50 @@
   <div id="order-demo" class="zoom-anim-dialog mfp-hide taxi-modal">
     <div class="closeBtn"></div>
     <h1>Закажите звонок</h1>
-    <form action="">
+    <form method="post" action="/ru/request/send" id="leaveDemoRequest">
       <div class="input-container">
-        <input type="text" id="name" required="required"/>
-        <label for="name">Ваше имя</label>
+        <input id="first_name" name="first_name" placeholder="" type="text" autocomplete="off" pattern="[\u00BF-\u1FFF\u2C00-\uD7FF\w\s]{2,100}" required="required">
+        <label for="first_name">Ваше имя</label>
         <div class="bar"></div>
       </div>
       <div class="input-container">
-        <input type="text" id="telnum" required="required"/>
-        <label for="telnum">Номер телефона</label>
+        <input id="telephone" name="telephone" type="text" placeholder="" autocomplete="off" pattern="\+\d{8,15}.*" required="required">
+        <label for="telephone">Номер телефона</label>
         <div class="bar"></div>
       </div>
       <div class="input-container">
-        <input type="text" id="email" required="required"/>
+        <input id="email" name="email" type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" placeholder="" autocomplete="off"  required="required">
         <label for="email">Ваш E-mail</label>
         <div class="bar"></div>
       </div>
-      <button class="btn red-btn">Отправить</button>
+      <button type="submit" class="btn red-btn">Отправить</button>
     </form>
+  </div>
+
+
+  <!-- Thank you dialog -->
+  <div id="thanks-modal" class="zoom-anim-dialog mfp-hide taxi-modal">
+    <div class="closeBtn"></div>
+    <div class="taxi-modal--icon">
+      <img src="images/check.svg" alt="">
+    </div>
+    <div class="notification success">
+      <div class="notification-title">Спасибо!<br>Ваша заявка принята</div>
+    </div>
+    
+  </div>
+
+  <!-- Erro dialog -->
+  <div id="error-modal" class="zoom-anim-dialog mfp-hide taxi-modal">
+    <div class="closeBtn"></div>
+    <div class="taxi-modal--icon">
+      <img src="images/cross-modal.svg" alt="">
+    </div>
+    <div class="notification error">
+      <div class="notification-title">Упс!<br>Что то пошло не так.</div>
+      <p class="notification-text">Пожалуйста, попробуйте позже.</p>
+    </div>
+    
   </div>
   
 
