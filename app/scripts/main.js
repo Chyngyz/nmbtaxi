@@ -127,10 +127,18 @@ $(document).ready(function() {
 	});
 
 	// Popup on screenshots
-	$('.screen-thumbs').magnificPopup({
+	$('.taxi-pricing--services, .taxi-admin--operators-thumbs').magnificPopup({
+		delegate: 'a',
 		type: 'image',
 		closeOnContentClick: true,
 		mainClass: 'mfp-img-mobile',
+		
+		gallery: {
+			enabled: true,
+			navigateByImgClick: true,
+			preload: [0,2],
+			tCounter: '<span class="mfp-counter">%curr% из %total%</span>'
+		},
 		image: {
 			verticalFit: true
 		}

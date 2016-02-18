@@ -80,6 +80,15 @@
 			}
 		}
 
+		@include MQM(370) {
+			img {
+				float: none;
+			}
+			p {
+				float: none;
+			}
+		}
+
 	}
 
 	.col-hw {

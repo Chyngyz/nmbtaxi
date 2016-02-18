@@ -478,18 +478,16 @@
 	}
 }
 .graph {
-	width: 105%;
-    margin-left: -15px;
-    margin-right: -15px;
+	width: 100%;
+    position: relative;
     margin-bottom: 15px;
-
     overflow: hidden;
 
 
     svg {
 		position: relative;
 		bottom: -10px;
-		width: 100%;
+		width: 101%;
 		height: auto;
 
 		#g1, #g2 {
