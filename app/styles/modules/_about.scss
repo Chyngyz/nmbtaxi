@@ -489,6 +489,8 @@
     svg {
 		position: relative;
 		bottom: -10px;
+		width: 100%;
+		height: auto;
 
 		#g1, #g2 {
 			@include transform(scaleY(0));
