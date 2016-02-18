@@ -254,10 +254,35 @@ ul {
   }
 }
 
+.visible-sm {
+  display: none;
+
+  @include MQM(767) {
+    display: block;
+  }
+}
+
 .hidden-sm {
   display: block;
 
   @include MQM(767) {
     display: none;
+  }
+}
+
+
+.visible-on-lg {
+  display: none;
+
+  @include MQ(1075) {
+    display: block;
+  }
+}
+
+.visible-on-sm {
+  display: none;
+
+  @include MQM(1074) {
+    display: block;
   }
 }

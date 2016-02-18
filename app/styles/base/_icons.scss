@@ -1,0 +1,45 @@
+@font-face {
+    font-family: 'taxi';
+    src:    url('../fonts/taxi.eot?345yyd');
+    src:    url('../fonts/taxi.eot?345yyd#iefix') format('embedded-opentype'),
+        url('../fonts/taxi.ttf?345yyd') format('truetype'),
+        url('../fonts/taxi.woff?345yyd') format('woff'),
+        url('../fonts/taxi.svg?345yyd#taxi') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+i {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'taxi' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.taxi-support:before {
+    content: "\e900";
+}
+.taxi-code:before {
+    content: "\e901";
+}
+.taxi-docs:before {
+    content: "\e902";
+}
+.taxi-integration:before {
+    content: "\e903";
+}
+.taxi-learn:before {
+    content: "\e904";
+}
+.taxi-start:before {
+    content: "\e905";
+}
+

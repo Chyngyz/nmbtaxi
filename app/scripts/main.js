@@ -78,7 +78,7 @@ $(document).ready(function() {
 	}
 
 	init();
-	$( "window" ).trigger( "scroll" );
+	$(window).trigger( "scroll" );
 
 
 
@@ -126,24 +126,27 @@ $(document).ready(function() {
 		}
 	});
 
-	// Popup on screenshots
-	$('.taxi-pricing--services, .taxi-admin--operators-thumbs').magnificPopup({
-		delegate: 'a',
-		type: 'image',
-		closeOnContentClick: true,
-		mainClass: 'mfp-img-mobile',
-		
-		gallery: {
-			enabled: true,
-			navigateByImgClick: true,
-			preload: [0,2],
-			tCounter: '<span class="mfp-counter">%curr% из %total%</span>'
-		},
-		image: {
-			verticalFit: true
-		}
-		
-	});
+	// Popup on screenshots	
+
+	$('.gallery').each(function() {
+	    $(this).magnificPopup({
+			delegate: 'a',
+			type: 'image',
+			closeOnContentClick: true,
+			mainClass: 'mfp-img-mobile',
+			
+			gallery: {
+				enabled: true,
+				navigateByImgClick: true,
+				preload: [0,2],
+				tCounter: '<span class="mfp-counter">%curr% из %total%</span>'
+			},
+			image: {
+				verticalFit: true
+			}
+			
+		});
+	}); 
 
 
 
@@ -382,23 +385,15 @@ $(document).ready(function() {
         $.post($form.prop('action'), data)
             .success(function(data){
                 $form.find('input').val('');
-                // Close the request modal
-            	$.magnificPopup.close();
             	//Show success modal
-            	setTimeout(function() {
-                	successModal();
-            	}, 500);
-            	
+            	successModal();          	
                 
             })
             .fail(function(e){
             	$form.find('input').val('');
-            	// Close the request modal
-            	$.magnificPopup.close();
+            	
             	//Show error modal
-            	setTimeout(function() {
-                	errorModal();
-            	}, 500);
+            	errorModal();
             	
             });
         return false;
@@ -428,6 +423,10 @@ $(document).ready(function() {
 	        }
 	     }
 	});
+
+
+	// Match heights
+	$('.match-height').matchHeight();
 
 
 });

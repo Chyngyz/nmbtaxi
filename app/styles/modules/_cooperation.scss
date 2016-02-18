@@ -62,6 +62,11 @@
     	li {
     		margin-bottom: 25px;
 
+            @include MQM(XS) {
+                font-size: rem(16);
+                line-height: rem(18);
+            }
+
     		&:last-child {
     			margin-bottom: 40px;
     		}
@@ -115,12 +120,10 @@
     }
 
     &--time {
-    	font-family: $myriad-thin;
-    	color: #fff;
-    	font-size: rem(170);
+    	
 
-        @include MQM(XS) {
-            font-size: rem(120);
+        img {
+            max-width: 350px;
         }
     }
 }

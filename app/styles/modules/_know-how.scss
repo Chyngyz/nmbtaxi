@@ -18,6 +18,10 @@
 	    	opacity: 1;
         	@include transform(translateY(0));
 	    }
+
+	    @include MQM(XS) {
+	    	font-size: rem(25);
+	    }
 	}
 
 	&--sm {

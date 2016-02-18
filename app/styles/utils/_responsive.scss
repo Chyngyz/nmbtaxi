@@ -31,7 +31,7 @@
 @mixin MQM($res) {
     @if $res == 'LG' {
         /* Large Devices, Wide Screens */
-        @media only screen and (max-width : 1200px) {
+        @media only screen and (max-width : 1400px) {
             @content;
         }
 

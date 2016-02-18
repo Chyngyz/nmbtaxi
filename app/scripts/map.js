@@ -10,10 +10,13 @@ $(document).ready(function() {
     
     $(window).resize(function () {
         if($(window).width() > 540) {
+            $('#mapvideo').get(0).play();
             $('.taxi-hero--map').show();
+
             resizeToCover();
         } else {
             $('.taxi-hero--map').hide();
+            $('#mapvideo').get(0).pause();
         }
         
     });

@@ -3,16 +3,16 @@
 	padding:40px 40px 20px;
 	font-family: $myriad-thin;
 
-	@include MQM(XS) {
-		padding-left: 10px;
-		padding-right: 10px;
+	@include MQM(1025) {
+		padding: 20px 0;
 	}
 
 	p {
 		color: #9397a6;
 
-		@include MQM(XS){
+		@include MQM(LG){
 			font-size: rem(14);
+			line-height: 1.4;
 		}
 
 		span.emphasis {
@@ -24,6 +24,7 @@
 		font-size: rem(18);
 		color: #fff;
 		margin-top: 0;
+		margin-bottom: 0;
 		text-transform: uppercase;
 	}
 
@@ -32,6 +33,10 @@
 		height: 120px;
 		width: 200px;
 		border-left: 1px solid #9397a6;
+
+		&-title {
+			margin-bottom: 10px;
+		}
 
 		@include MQM(XS) {
 			padding-left: auto;
@@ -101,9 +106,19 @@
 
 	hr {
 		width: 100%;
+		border-color:rgba(143, 149,159,0.2);
 	}
 
+	.margined-logo {
+		margin-top: 15px;
+	}
+	
+	.address-block {
+		margin-bottom: 10px;
 
-
+		p {
+			margin-top: 0;
+		}
+	}
 
 }
