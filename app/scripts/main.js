@@ -78,7 +78,7 @@ $(document).ready(function() {
 	}
 
 	init();
-	$(window).trigger( "scroll" );
+	$(window).triggerHandler( "scroll" );
 
 
 
