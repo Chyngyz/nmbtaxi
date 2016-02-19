@@ -60,12 +60,17 @@ $(document).ready(function() {
 				setTimeout( scrollPage, 250 );
 			}
 		}, false );
+
+		if( scrollY() > changeHeaderOn ) {
+			$(header).addClass('shrink');
+			console.log('shrink');
+		}
 	}
 
 	function scrollPage() {
 		var sy = scrollY();
 		if ( sy >= changeHeaderOn ) {
-			$(header).addClass('shrink');
+			$(header).removeClass('shrink').addClass('shrink');
 		}
 		else {
 			$(header).removeClass('shrink');
@@ -78,7 +83,8 @@ $(document).ready(function() {
 	}
 
 	init();
-	$(window).triggerHandler( "scroll" );
+	
+
 
 
 
