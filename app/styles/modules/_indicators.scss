@@ -21,7 +21,7 @@
         opacity: 0;
         position: relative;
         @include transform(translateY(40px));
-        @include transition(all, 0.3s, ease);
+        @include transition(all 0.3s ease);
 
         @include MQM(XS) {
             font-size: rem(27);
@@ -47,7 +47,7 @@
         opacity: 0;
         position: relative;
         @include transform(translateY(40px));
-        @include transition(all, 0.3s, ease);
+        @include transition(all 0.3s ease);
 
         @include MQM(XS) {
             text-align: left;
@@ -97,7 +97,7 @@
     opacity: 0;
     position: relative;
     @include transform(translateY(50px));
-    @include transition(all, 0.5s, ease);
+    @include transition(all 0.5s ease);
 
     &.on {
         opacity: 1;

@@ -49,7 +49,7 @@
     font-size: 24px;
     font-weight: 300;
     line-height: 60px;
-    @include transition(0.2s ease);
+    @include transition(all 0.2s ease);
   }
 
   .bar {
