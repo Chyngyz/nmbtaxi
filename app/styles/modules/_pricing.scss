@@ -7,7 +7,7 @@
 		font-size: 120px;
 	    font-family: $myriad-bolder;
 	    color: rgb(255, 0, 96);
-	
+		
 	    background: -webkit-linear-gradient(left, #ff86dd, #ffe837);
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
@@ -206,9 +206,8 @@
 
 	&--btn {
 		border-radius: 8px;
-	    background-image: -moz-linear-gradient( 90deg, rgb(255,62,100) 0%, rgb(255,137,107) 100%);
-	    background-image: -webkit-linear-gradient( 90deg, rgb(255,62,100) 0%, rgb(255,137,107) 100%);
-	    background-image: -ms-linear-gradient( 90deg, rgb(255,62,100) 0%, rgb(255,137,107) 100%);
+		@include linear-gradient(to top, rgb(255,62,100), rgb(255,137,107), $fallback: rgb(255,62,100));
+	    
 	    box-shadow: 0px 8px 13px 0px rgba(255, 79, 116, 0.1),0px 11px 24px 0px rgba(255, 79, 116, 0.28);
 	    font-family:$myriad-thin;
 	    font-size: 30px;
