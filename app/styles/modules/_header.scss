@@ -36,6 +36,10 @@
 	    @include MQM(XS) {
 	    	height: 50px;
 	    }
+
+	    .brand img {
+	    	margin-top: 0;
+	    }
 	}
 
 
@@ -53,6 +57,7 @@
 		img {
 			width: 100%;
 			height: auto;
+			margin-top: -4px;
 		}
 
 		@include MQM(XS) {
