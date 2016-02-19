@@ -121,6 +121,10 @@
 			    white-space: nowrap;
 			    color: #ccc;
 			    left: 50%;
+
+			    @include MQM(MD) {
+			    	left: 10px;
+			    }
 			}
 
 
