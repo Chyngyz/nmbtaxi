@@ -1,9 +1,9 @@
 .taxi-cooperation {
     @include linear-gradient(to top, rgb(177,209,248), rgb(147,140,213), $fallback: rgb(147,140,213));
-
+    
     padding-top: 2px;
     padding-bottom: 88px;
-    background-color: rgb(177,209,248);
+    background-color: #938cd5;
 
     &--title {
     	font-size: rem(48);
