@@ -3,12 +3,50 @@ $(document).ready(function() {
     var vid_w_orig;  // original video dimensions
     var vid_h_orig;
 
+    // Video arrays
+    var v = [
+        [
+            "media/md/map.mp4",
+            "media/md/map.webm"
+        ],
+        [
+            "media/lg/map.mp4",
+            "media/lg/map.webm"
+        ]
+    ];
+    var video = document.getElementById('mapvideo');
+
+    function setVideo() {
+        if (window.devicePixelRatio > 1 || $(window).width() > 1370) {
+            if(Modernizr.video && Modernizr.video.h264) {
+                video.src = v[1][0];
+            } else if(Modernizr.video && Modernizr.video.webm) {
+                video.src = v[1][1];
+            }
+
+            console.log('resize');
+            video.load();
+        } else {
+            if(Modernizr.video && Modernizr.video.h264) {
+                video.src = v[0][0];
+            } else if(Modernizr.video && Modernizr.video.webm) {
+                video.src = v[0][1];
+            }
+            console.log('sm');
+            video.load();
+        }
+    }
+
     
-        
+    
+       
     vid_w_orig = parseInt($('#mapvideo').attr('width'));
     vid_h_orig = parseInt($('#mapvideo').attr('height'));
     
     $(window).resize(function () {
+        // Change videos on resize
+        setVideo();
+
         if($(window).width() > 540) {
             $('#mapvideo').get(0).play();
             $('.taxi-hero--map').show();
@@ -18,6 +56,8 @@ $(document).ready(function() {
             $('.taxi-hero--map').hide();
             $('#mapvideo').get(0).pause();
         }
+
+
         
     });
 
