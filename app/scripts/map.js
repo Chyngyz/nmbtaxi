@@ -2,6 +2,13 @@ $(document).ready(function() {
     var min_w = 300; // minimum video width allowed
     var vid_w_orig;  // original video dimensions
     var vid_h_orig;
+    
+    //Change video poster on large devices to large poster
+    if (window.devicePixelRatio > 1 || $(window).width() > 1370) {
+        $('#mapvideo').attr('poster', 'images/poster-lg.jpg');
+    }
+
+    
 
     // Video arrays
     var v = [
