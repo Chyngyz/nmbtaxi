@@ -31,7 +31,7 @@ $(document).ready(function() {
                 video.src = v[1][1];
             }
 
-            console.log('resize');
+            //console.log('resize');
             video.load();
         } else {
             if(Modernizr.video && Modernizr.video.h264) {
@@ -39,7 +39,7 @@ $(document).ready(function() {
             } else if(Modernizr.video && Modernizr.video.webm) {
                 video.src = v[0][1];
             }
-            console.log('sm');
+            //console.log('sm');
             video.load();
         }
     }

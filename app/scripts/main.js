@@ -63,7 +63,7 @@ $(document).ready(function() {
 
 		if( scrollY() > changeHeaderOn ) {
 			$(header).addClass('shrink');
-			console.log('shrink');
+			//console.log('shrink');
 		}
 	}
 

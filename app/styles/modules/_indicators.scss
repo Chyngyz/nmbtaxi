@@ -1,7 +1,7 @@
 .taxi-indicators {
     @include linear-gradient(to top, rgb(255,137,107), rgb(255,62,100), $fallback: rgb(255,62,100));
     box-shadow: 0 2px 76px 0 rgba(43, 82, 121, 0.23);
-    padding-bottom: 59px;
+    padding-bottom: 5px;
     padding-top: 49px;
 
     line-height: 1.1;
